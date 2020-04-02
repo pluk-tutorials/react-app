@@ -1,4 +1,4 @@
-name: CI 
+name: CI
 on:
   pull_request:
     branches: [develop]
@@ -15,18 +15,15 @@ jobs:
 
       # Install Dependencies
       # npm ci is similar to npm install but it's more suitable for CI environments
-      - run: npm ci 
+      - run: npm ci
 
       # Check code formatting
-      - run: npm run format:check 
+      - run: npm run format:check
 
       # Run automated tests
       - run: npm test -- --coverage
         env:
           # Required so that tests are run non-interactively:
           CI: true
-
       # Upload Code Coverage as an Artifact
-
       # Cache Dependencies
-      
